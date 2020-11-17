@@ -10,7 +10,7 @@ public class BusTest {
 
     @Before
     public void before(){
-        bus = new Bus("Portabello", 40);
+        bus = new Bus("Portabello", 3);
         person = new Person();
 
     }
@@ -33,4 +33,13 @@ public class BusTest {
         assertEquals(0, bus.countPassengers());
     }
 
+    @Test
+    public void cannotAddMoreThanCapacity(){
+        bus.pickUp();
+        bus.pickUp();
+        bus.pickUp();
+        bus.pickUp();
+        assertEquals(3, bus.countPassengers());
+
+    }
 }
